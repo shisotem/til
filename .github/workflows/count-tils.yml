@@ -15,9 +15,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Count TILs
         run: echo "TILS_COUNT=$(find . -name '*.md' -not -name 'README.md' | wc -l)" >> $GITHUB_ENV
-      - name: Update README
+      - name: Update README.md
+        run: sed -i "s@<code>[0-9]*</code>@<code>$TILS_COUNT</code>@g" README.md
+      - name: Commit changes
         run: |
-          sed -i "s@<code>[0-9]*</code>@<code>$TILS_COUNT</code>@g" README.md
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
