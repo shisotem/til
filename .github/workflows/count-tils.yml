@@ -17,12 +17,12 @@ jobs:
         run: echo "TILS_COUNT=$(find . -name '*.md' -not -name 'README.md' | wc -l)" >> $GITHUB_ENV
       - name: Update README
         run: |
+          sed -i "s/{TILS_COUNT}/$TILS_COUNT/g" README.md
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          sed -i "s/{TILS_COUNT}/$TILS_COUNT/g" README.md
-          git add .; \
-          git commit -m "docs: auto-update README.md with latest TILs count"; \
-          git push origin HEAD:${GITHUB_REF}; \
+          git add -A
+          git commit -m "docs: auto-update README.md with latest TILs count"
+          git push origin HEAD:${GITHUB_REF}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
