@@ -21,4 +21,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -am "docs: auto-update README.md with latest TILs count"
-          git push
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/shisotem/til.git
