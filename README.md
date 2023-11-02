@@ -2,4 +2,4 @@
 
 > Today I Learned
 
-There are <code>1</code> TILs in this repo.
+There are <code>0</code> TILs in this repo.
