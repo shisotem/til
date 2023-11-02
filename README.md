@@ -2,4 +2,4 @@
 
 > Today I Learned
 
-There are `{TILS_COUNT}` TILs in this repo.
+There are `6` TILs in this repo.
