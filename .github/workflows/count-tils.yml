@@ -24,7 +24,7 @@ jobs:
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if (git diff --shortstat | grep '[0-9]'); then \
             git add -A; \
-            git commit -m "docs: auto-update README.md with latest TILs count"; \
+            git commit -m "docs: auto-update with latest TILs count"; \
             git push origin HEAD:${GITHUB_REF}; \
           fi
         env:
