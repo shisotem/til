@@ -24,3 +24,5 @@ const strArr: NumArrType = ["foo", "bar"]; // compile error
 ## References
 
 https://oukayuka.booth.pm/items/2368045
+
+## Related Articles
